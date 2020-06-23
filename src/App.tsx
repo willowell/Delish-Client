@@ -1,12 +1,13 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container'
 
 import Routes from './Routes'
+import NavigationBar from './components/NavigationBar';
 function App() {
     return (
-        <Container>
+        <React.Fragment>
+            <NavigationBar />
             <Routes />
-        </Container>
+        </React.Fragment>
     );
 }
 

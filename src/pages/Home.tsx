@@ -1,4 +1,5 @@
 import React from 'react';
+import { RouteComponentProps } from '@reach/router'
 import gql from 'graphql-tag';
 import { useQuery } from '@apollo/react-hooks';
 import Container from 'react-bootstrap/Container';
@@ -16,7 +17,7 @@ const GET_A_MEAL = gql`
   }
 `;
 
-export default function Home({ path }: any) {
+export default function Home(props: RouteComponentProps) {
     const { data, loading, error } = useQuery(GET_A_MEAL);
 
     if (loading) return <p>Loading...</p>;
