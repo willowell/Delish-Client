@@ -4,7 +4,7 @@ import { HttpLink } from 'apollo-link-http';
 import { ApolloProvider } from '@apollo/react-hooks';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import injectStyles from './styles';
+import './index.css'
 import App from './App';
 
 const cache = new InMemoryCache();
@@ -17,7 +17,6 @@ const client: ApolloClient<NormalizedCacheObject> = new ApolloClient({
   link
 });
 
-injectStyles();
 ReactDOM.render(
     <ApolloProvider client={client}>
         <App />  
