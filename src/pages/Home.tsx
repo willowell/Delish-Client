@@ -16,7 +16,7 @@ const GET_A_MEAL = gql`
   }
 `;
 
-export default function Home() {
+export default function Home({ path }: any) {
     const { data, loading, error } = useQuery(GET_A_MEAL);
 
     if (loading) return <p>Loading...</p>;

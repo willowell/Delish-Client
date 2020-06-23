@@ -1,11 +1,11 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container'
 
-import Home from './pages/Home'
+import Routes from './Routes'
 function App() {
     return (
         <Container>
-            <Home />
+            <Routes />
         </Container>
     );
 }
