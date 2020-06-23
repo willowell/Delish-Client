@@ -1,10 +1,14 @@
 import React from 'react'
-import Container from 'react-bootstrap/Container'
+
+import NavigationBar from '../components/NavigationBar'
+import Footer from '../components/Footer'
 
 export default function MainLayout(props: any) {
     return (
-        <Container>
+        <React.Fragment>
+            <NavigationBar />
             { props.children }
-        </Container>
+            <Footer />
+        </React.Fragment>
     )
 }

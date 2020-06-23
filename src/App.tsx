@@ -1,12 +1,14 @@
 import React from 'react';
 
 import Routes from './Routes'
-import NavigationBar from './components/NavigationBar';
+import MainLayout from './layouts/MainLayout';
+
 function App() {
     return (
         <React.Fragment>
-            <NavigationBar />
-            <Routes />
+            <MainLayout>
+                <Routes />
+            </MainLayout>
         </React.Fragment>
     );
 }

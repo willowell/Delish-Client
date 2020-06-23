@@ -13,6 +13,8 @@ const GET_A_MEAL = gql`
             amount
         }
         instructions
+        youtube
+        thumbnail
     }
   }
 `;
@@ -27,7 +29,7 @@ export default function Home(props: RouteComponentProps) {
     return (
         <Container>
             <div>
-                <h1>{data.mealByName.name}</h1>
+                <h1>{ data.mealByName.name }</h1>
                 {
                     data.mealByName.instructions.map((line: any) => (
                             <div key={line.id}>
