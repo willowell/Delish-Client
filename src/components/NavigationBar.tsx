@@ -13,6 +13,9 @@ const StyledNavbar = styled.div`
 
     .navbar-brand, .navbar-nav .nav-link {
         color: #650d88;
+        font-family: Mogra;
+        font-size: 2rem;
+
 
         &:hover {
             color: #e80c7a;
@@ -32,6 +35,7 @@ export default function NavigationBar() {
                         className="d-inline-block align-center"
                         alt="Delish logo"
                     />
+                    DELISH !
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
