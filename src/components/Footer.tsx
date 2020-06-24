@@ -18,20 +18,21 @@ const StyledFooter = styled.footer`
     }
 `
 
-export default function Footer() {
-    return (
-        <StyledFooter>
-            <p>Copyright &copy; William Howell { new Date().getFullYear() }</p>
-            <p>
+export default function Footer () {
+  return (
+    <StyledFooter>
+      <p>Copyright &copy; William Howell {new Date().getFullYear()}</p>
+      <p>
                 Powered by{' '}
-                <a
-                    href="https://www.themealdb.com/api.php"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="Link">
+        <a
+          href='https://www.themealdb.com/api.php'
+          target='_blank'
+          rel='noopener noreferrer'
+          className='Link'
+        >
                     TheMealDB
-                </a>
-            </p>
-        </StyledFooter>
-    )
+        </a>
+      </p>
+    </StyledFooter>
+  )
 }

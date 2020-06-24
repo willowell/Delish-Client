@@ -1,13 +1,14 @@
 import React from 'react'
 import { useQuery } from '@apollo/react-hooks'
 import styled from '@emotion/styled'
+import { colors } from '../styles/theme'
 
 import Carousel from 'react-bootstrap/Carousel'
 import gql from 'graphql-tag'
 
-//? Notes for this carousel:
-//? https://alligator.io/css/cropping-images-object-fit/
-//? https://codepen.io/JacobLett/pen/weqOjq?editors=1000
+// ? Notes for this carousel:
+// ? https://alligator.io/css/cropping-images-object-fit/
+// ? https://codepen.io/JacobLett/pen/weqOjq?editors=1000
 
 const GET_THREE_RANDOM_MEAL_IMAGES = gql`
     query GetThreeRandomMealImages {
@@ -28,7 +29,7 @@ const StyledCarousel = styled.div`
     Removes white gap between slides - chagnge to base color of slide images
     */
     .carousel {
-        background: #007aeb;
+        background: ${colors.accent};
     }
 
     /*
@@ -52,41 +53,41 @@ const StyledCarousel = styled.div`
         font-family: Mogra;
         font-weight: bold;
         color: white;
-        -webkit-text-stroke: 2px #650d88;
+        -webkit-text-stroke: 2px ${colors.secondary};
     }
 `
 
-export default function HomeCarousel() {
-    const { data, loading, error } = useQuery(GET_THREE_RANDOM_MEAL_IMAGES);
+export default function HomeCarousel () {
+  const { data, loading, error } = useQuery(GET_THREE_RANDOM_MEAL_IMAGES)
 
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>ERROR</p>;
-    if (!data) return <p>Not found</p>;
+  if (loading) return <p>Loading...</p>
+  if (error) return <p>ERROR</p>
+  if (!data) return <p>Not found</p>
 
-    return (
-        <React.Fragment>
-            <StyledCarousel>
-                <Carousel>
-                    <Carousel.Item>
-                        <img src={data.item1.thumbnail} alt="Slide 1" />
-                        <Carousel.Caption>
-                            <h1>What's for breakfast?</h1>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img src={data.item2.thumbnail} alt="Slide 1" />
-                        <Carousel.Caption>
-                            <h1>What's for lunch?</h1>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img src={data.item3.thumbnail} alt="Slide 1" />
-                        <Carousel.Caption>
-                            <h1>What's for dinner?</h1>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                </Carousel>
-            </StyledCarousel>
-        </React.Fragment>
-    )
+  return (
+    <>
+      <StyledCarousel>
+        <Carousel>
+          <Carousel.Item>
+            <img src={data.item1.thumbnail} alt='Slide 1' />
+            <Carousel.Caption>
+              <h1>What's for breakfast?</h1>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img src={data.item2.thumbnail} alt='Slide 1' />
+            <Carousel.Caption>
+              <h1>What's for lunch?</h1>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img src={data.item3.thumbnail} alt='Slide 1' />
+            <Carousel.Caption>
+              <h1>What's for dinner?</h1>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
+      </StyledCarousel>
+    </>
+  )
 }
