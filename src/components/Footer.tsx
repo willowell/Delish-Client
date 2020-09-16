@@ -23,14 +23,23 @@ export default function Footer () {
     <StyledFooter>
       <p>Copyright &copy; William Howell {new Date().getFullYear()}</p>
       <p>
-                Powered by{' '}
+        Powered by{' '}
         <a
           href='https://www.themealdb.com/api.php'
           target='_blank'
           rel='noopener noreferrer'
-          className='Link'
         >
-                    TheMealDB
+          TheMealDB
+        </a>
+      </p>
+      <p>
+        You can find the code for this website at{' '}
+        <a
+          href="https://github.com/willowell/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          willowell@GitHub
         </a>
       </p>
     </StyledFooter>

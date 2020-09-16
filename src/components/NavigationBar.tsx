@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from '@reach/router'
 
 import { Nav, Navbar } from 'react-bootstrap'
 
@@ -27,7 +28,7 @@ export default function NavigationBar () {
   return (
     <StyledNavbar>
       <Navbar>
-        <Navbar.Brand href='/'>
+        <Navbar.Brand>
           <img
             src={logo}
             width='60'
@@ -35,19 +36,19 @@ export default function NavigationBar () {
             className='d-inline-block align-center'
             alt='Delish logo'
           />
-                    DELISH !
+          <Link className="navbar-brand" to="/">DELISH !</Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls='responsive-navbar-nav' />
         <Navbar.Collapse id='responsive-navbar-nav'>
           <Nav className='ml-auto'>
             <Nav.Item>
-              <Nav.Link href='/'>Home</Nav.Link>
+              <Link className="nav-link" to='/'>Home</Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href='/about'>About</Nav.Link>
+              <Link className="nav-link" to='/about'>About</Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href='/contact'>Contact</Nav.Link>
+              <Link className="nav-link" to='/contact'>Contact</Link>
             </Nav.Item>
           </Nav>
         </Navbar.Collapse>
