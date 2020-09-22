@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Placeholder () {
+export default function PlaceholderText () {
   return (
     <div>
       <p>

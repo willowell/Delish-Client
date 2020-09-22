@@ -27,10 +27,14 @@
     "eject": "react-scripts eject",
     "lint": "",
     "plzfixmycode": "",
-    "codegen": "apollo client:codegen --target typescript --watch"
+    "codegen": "graphql-codegen --config codegen.yml"
   },
   "devDependencies": {
     "@apollo/react-testing": "4.0.0",
+    "@graphql-codegen/cli": "1.17.8",
+    "@graphql-codegen/typescript": "1.17.8",
+    "@graphql-codegen/typescript-operations": "^1.17.8",
+    "@graphql-codegen/typescript-react-apollo": "^2.0.6",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.0.4",
     "@types/jest": "^26.0.13",

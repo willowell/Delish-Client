@@ -6,20 +6,20 @@ import { Nav, Navbar } from 'react-bootstrap'
 import styled from '@emotion/styled'
 import { colors } from '../styles/theme'
 
-import logo from '../assets/Delish_200x200.png'
+import Logo from './Logo'
 
 const StyledNavbar = styled.div`
     .navbar {
-        background-color: ${colors.accent};
+        background-color: ${colors.primary.dark};
     }
 
     .navbar-brand, .navbar-nav .nav-link {
         font-family: Mogra;
         font-size: 2rem;
-        color: ${colors.primary};
+        color: ${colors.primary.main};
 
         &:hover {
-            color: ${colors.secondary};
+            color: ${colors.secondary.main};
         }
     }
 `
@@ -29,13 +29,7 @@ export default function NavigationBar () {
     <StyledNavbar>
       <Navbar>
         <Navbar.Brand>
-          <img
-            src={logo}
-            width='60'
-            height='60'
-            className='d-inline-block align-center'
-            alt='Delish logo'
-          />
+          <Logo/>
           <Link className="navbar-brand" to="/">DELISH !</Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls='responsive-navbar-nav' />

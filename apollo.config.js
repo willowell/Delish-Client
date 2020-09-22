@@ -1,6 +1,6 @@
 module.exports = {
   client: {
-    name: 'Recipe Box [web]',
+    name: 'DELISH [web]',
     service: 'themealdb-graph'
   }
 }

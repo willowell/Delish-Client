@@ -1,19 +1,21 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
+import { colors } from '../styles/theme'
+
 const StyledFooter = styled.footer`
     border-top: 1px solid #ccc;
     margin-top: 50px !important;
     padding-top: 20px;
-    background-color: white;
-    color: black;
+    background-color: ${colors.primary.dark};
+    color: white;
     text-align: center;
 
     a {
-        color: #650d88;
+        color: ${colors.primary.main};
 
         &:hover {
-            color: #e80c7a;
+            color: ${colors.secondary.main};
         }
     }
 `

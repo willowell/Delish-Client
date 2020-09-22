@@ -1,0 +1,77 @@
+query MealDetail($id: Int!) {
+    mealByID(id: $id) {
+        name
+        category
+        area
+        thumbnail
+        youtube
+        instructions
+        ingredients {
+            name
+            amount
+        }
+    }
+}
+
+query CarouselImages {
+    image1: mealByID(id: 52915) {
+        thumbnail
+    }
+    image2: mealByID(id: 52852) {
+        thumbnail
+    }
+    image3: mealByID(id: 52935) {
+        thumbnail
+    }
+}
+
+query AboutPageImages {
+    image1: mealByID(id: 52833) {
+        thumbnail
+    }
+    image2: mealByID(id: 52963) {
+        thumbnail
+    }
+}
+
+query GetSampleMealDetail {
+    mealByID(id: 52915) {
+        name
+        category
+        area
+        thumbnail
+        youtube
+        instructions
+        ingredients {
+            name
+            amount
+        }
+    }
+}
+
+query GetSampleMealCardInfo {
+    item1: mealByID(id: 52915) {
+        name
+        thumbnail
+    }
+    item2: mealByID(id: 52923) {
+        name
+        thumbnail
+    }
+    item3: mealByID(id: 52990) {
+        name
+        thumbnail
+    }
+    item4: mealByID(id: 52900) {
+        name
+        thumbnail
+    }
+    item5: mealByID(id: 52993) {
+        name
+        thumbnail
+    }
+    item6: mealByID(id: 52954) {
+        name
+        thumbnail
+    }
+}

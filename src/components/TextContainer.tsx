@@ -3,20 +3,28 @@ import styled from '@emotion/styled'
 import { colors } from '../styles/theme'
 
 const StyledText = styled.div`
-    .label {
+    h1, h2, h3, h4, h5 {
         font-family: Mogra;
-        font-size: 2rem;
-        color: ${colors.primary};
+        color: ${colors.primary.main};
         text-align: center;
     }
 
-    .emphasis {
-        font-family: Mogra;
-        color: ${colors.primary};
+    .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
-    p {
+    .emphasis-big {
+        font-size: 1.5rem;
+        font-family: Mogra;
+        color: ${colors.primary.main};
+    }
+
+    .emphasis {
         font-size: 1.2rem;
+        font-family: Mogra;
+        color: ${colors.primary.main};
         text-align: center;
     }
 `
