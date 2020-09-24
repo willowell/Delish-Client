@@ -1,3 +1,10 @@
+query MealCard($id: Int!) {
+    mealByID(id: $id) {
+        name
+        thumbnail
+    }
+}
+
 query MealDetail($id: Int!) {
     mealByID(id: $id) {
         name

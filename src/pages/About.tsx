@@ -21,7 +21,7 @@ const StyledAbout = styled.div`
     }
 `
 
-export default function About (props: RouteComponentProps) {
+const About: React.FC<RouteComponentProps> = (props) => {
     return (
       <StyledAbout>
         <Container>
@@ -59,3 +59,5 @@ export default function About (props: RouteComponentProps) {
     </StyledAbout>
   )
 }
+
+export default About

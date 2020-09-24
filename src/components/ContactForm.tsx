@@ -3,7 +3,7 @@ import React from 'react'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 
-export default function ContactForm () {
+const ContactForm: React.FC = () => {
     return (
         <Form>
             <Form.Group controlId="contactForm.email">
@@ -25,3 +25,5 @@ export default function ContactForm () {
         </Form>
     )
 }
+
+export default ContactForm

@@ -29,10 +29,12 @@ const StyledText = styled.div`
     }
 `
 
-export default function TextContainer (props: any): JSX.Element {
+const TextContainer: React.FC = (props) => {
     return (
         <StyledText>
             { props.children }
         </StyledText>
     )
 }
+
+export default TextContainer

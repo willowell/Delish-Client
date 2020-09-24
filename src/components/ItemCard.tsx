@@ -3,21 +3,24 @@ import React from 'react'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 
+import { MealCardQuery } from '../generated/graphql'
+
 interface ItemCardProps {
-    imageSource: string
-    mealName: string
+    data: MealCardQuery
 }
 
-export default function ItemCard (props: ItemCardProps) {
+const ItemCard: React.FC<ItemCardProps> = ({ data }) => {
     return (
         <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={props.imageSource} />
+            <Card.Img variant="top" src={data?.mealByID?.thumbnail ?? ''} />
 
             <Card.Body>
-                <Card.Title>{props.mealName}</Card.Title>
+                <Card.Title>{data?.mealByID?.name ?? ''}</Card.Title>
 
                 <Button variant="primary">Let's go!</Button>
             </Card.Body>
         </Card>
     )
 }
+
+export default ItemCard

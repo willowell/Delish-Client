@@ -24,7 +24,7 @@ const StyledNavbar = styled.div`
     }
 `
 
-export default function NavigationBar () {
+const NavigationBar: React.FC = () => {
   return (
     <StyledNavbar>
       <Navbar>
@@ -39,6 +39,9 @@ export default function NavigationBar () {
               <Link className="nav-link" to='/'>Home</Link>
             </Nav.Item>
             <Nav.Item>
+              <Link className="nav-link" to='/recipes'>Recipes</Link>
+            </Nav.Item>
+            <Nav.Item>
               <Link className="nav-link" to='/about'>About</Link>
             </Nav.Item>
             <Nav.Item>
@@ -50,3 +53,5 @@ export default function NavigationBar () {
     </StyledNavbar>
   )
 }
+
+export default NavigationBar

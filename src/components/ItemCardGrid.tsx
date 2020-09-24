@@ -1,22 +1,18 @@
 import React from 'react'
 
 import CardColumns from 'react-bootstrap/CardColumns'
+import { MealCardQuery } from '../generated/graphql'
 
 import ItemCard from './ItemCard'
 
-interface Item {
-    imageSource: string
-    mealName: string
-}
-
 interface ItemCardGridProps {
-    items:  Item[]
+    data: MealCardQuery[]
 }
 
-export default function ItemCardGrid (props: ItemCardGridProps) {
-    const cards = props.items.map((item) => {
+const ItemCardGrid: React.FC<ItemCardGridProps> = ({ data }) => {
+    const cards = data?.map((item) => {
         return (
-            <ItemCard imageSource={item.imageSource} mealName={item.mealName}/>
+            <ItemCard data={ item }/>
         )
     })
 
@@ -26,3 +22,5 @@ export default function ItemCardGrid (props: ItemCardGridProps) {
         </CardColumns>
     )
 }
+
+export default ItemCardGrid

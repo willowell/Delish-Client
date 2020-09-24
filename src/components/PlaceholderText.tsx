@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function PlaceholderText () {
+const PlaceholderText: React.FC = () => {
   return (
     <div>
       <p>
@@ -36,3 +36,5 @@ export default function PlaceholderText () {
     </div>
   )
 }
+
+export default PlaceholderText

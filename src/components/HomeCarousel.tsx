@@ -45,7 +45,7 @@ const StyledCarousel = styled.div`
     }
 `
 
-export default function HomeCarousel () {
+const HomeCarousel: React.FC = () => {
   return (
       <StyledCarousel>
         <Carousel>
@@ -71,3 +71,5 @@ export default function HomeCarousel () {
       </StyledCarousel>
   )
 }
+
+export default HomeCarousel

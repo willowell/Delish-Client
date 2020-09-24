@@ -145,6 +145,19 @@ export enum CacheControlScope {
 }
 
 
+export type MealCardQueryVariables = Exact<{
+  id: Scalars['Int'];
+}>;
+
+
+export type MealCardQuery = (
+  { __typename?: 'Query' }
+  & { mealByID?: Maybe<(
+    { __typename?: 'Meal' }
+    & Pick<Meal, 'name' | 'thumbnail'>
+  )> }
+);
+
 export type MealDetailQueryVariables = Exact<{
   id: Scalars['Int'];
 }>;
@@ -235,6 +248,40 @@ export type GetSampleMealCardInfoQuery = (
 );
 
 
+export const MealCardDocument = gql`
+    query MealCard($id: Int!) {
+  mealByID(id: $id) {
+    name
+    thumbnail
+  }
+}
+    `;
+
+/**
+ * __useMealCardQuery__
+ *
+ * To run a query within a React component, call `useMealCardQuery` and pass it any options that fit your needs.
+ * When your component renders, `useMealCardQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useMealCardQuery({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useMealCardQuery(baseOptions?: Apollo.QueryHookOptions<MealCardQuery, MealCardQueryVariables>) {
+        return Apollo.useQuery<MealCardQuery, MealCardQueryVariables>(MealCardDocument, baseOptions);
+      }
+export function useMealCardLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MealCardQuery, MealCardQueryVariables>) {
+          return Apollo.useLazyQuery<MealCardQuery, MealCardQueryVariables>(MealCardDocument, baseOptions);
+        }
+export type MealCardQueryHookResult = ReturnType<typeof useMealCardQuery>;
+export type MealCardLazyQueryHookResult = ReturnType<typeof useMealCardLazyQuery>;
+export type MealCardQueryResult = Apollo.QueryResult<MealCardQuery, MealCardQueryVariables>;
 export const MealDetailDocument = gql`
     query MealDetail($id: Int!) {
   mealByID(id: $id) {

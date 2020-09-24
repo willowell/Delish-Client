@@ -2,7 +2,7 @@ import React from 'react'
 import { RouteComponentProps } from '@reach/router'
 import TextContainer from '../components/TextContainer'
 
-export default function NoMatch (props: RouteComponentProps) {
+const NoMatch: React.FC<RouteComponentProps> = (props) => {
   return (
     <TextContainer>
       <h1 className="label">404</h1>
@@ -11,3 +11,5 @@ export default function NoMatch (props: RouteComponentProps) {
     </TextContainer>
   )
 }
+
+export default NoMatch

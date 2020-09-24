@@ -2,14 +2,12 @@ import React from 'react'
 import { RouteComponentProps } from '@reach/router'
 import Container from 'react-bootstrap/Container'
 
-import ContactForm from '../components/ContactForm'
-
-const Contact: React.FC<RouteComponentProps> = (props) => {
+const RecipeIndex: React.FC<RouteComponentProps> = (props) => {
   return (
     <Container>
-      <ContactForm />
+        <p>Here's the index for the recipes page!</p>
     </Container>
   )
 }
 
-export default Contact
+export default RecipeIndex

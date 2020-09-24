@@ -13,10 +13,11 @@ import HomeCarousel from '../components/HomeCarousel'
 import TextContainer from '../components/TextContainer'
 
 import { MeasuredIngredient, useGetSampleMealCardInfoQuery, useGetSampleMealDetailQuery } from '../generated/graphql'
+import MealDetailView from '../components/MealDetailView'
 
 
 
-export default function Home (props: RouteComponentProps): JSX.Element {
+const Home: React.FC<RouteComponentProps> = (props) => {
     const { data, loading, error } = useGetSampleMealDetailQuery()
 
     if (loading) return <p>Loading...</p>
@@ -28,46 +29,11 @@ export default function Home (props: RouteComponentProps): JSX.Element {
         <Container>
             <HomeCarousel />
         </Container>
-        {/*
         <Container>
-            <CardColumns>
-                <ItemCard imageSource={data.item1.thumbnail} mealName={data.item1.name} />
-                <ItemCard imageSource={data.item2.thumbnail} mealName={data.item2.name} />
-                <ItemCard imageSource={data.item3.thumbnail} mealName={data.item3.name} />
-                <ItemCard imageSource={data.item4.thumbnail} mealName={data.item4.name} />
-                <ItemCard imageSource={data.item5.thumbnail} mealName={data.item5.name} />
-                <ItemCard imageSource={data.item6.thumbnail} mealName={data.item6.name} />
-            </CardColumns>
-        </Container>
-        */}
-        <Container>
-            <TextContainer>
-                { !!data.mealByID &&
-                <> 
-                    <h1>{data.mealByID.name}</h1>
-                    <h2>☙{data.mealByID.category}, {data.mealByID.area}❧</h2>
-                    <h3>Ingredients</h3>
-                    <ul>
-                        { !!data.mealByID.ingredients &&
-                            data.mealByID.ingredients.map((ingredient) =>
-                                !!ingredient && <li>{ingredient.name}: {ingredient.amount}</li>
-                            )
-                        }
-                    </ul>
-                    <h3>Instructions</h3>
-                    <ol>
-                        { !!data.mealByID.instructions &&
-                            data.mealByID.instructions.map((instruction) =>
-                                !!instruction && <li>{instruction}</li>
-                            )
-                        }
-                    </ol>
-                </>
-            }
-            </TextContainer>
+            <MealDetailView data={data} />
         </Container>
     </Container>
   )
 }
 
-
+export default Home

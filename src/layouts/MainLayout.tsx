@@ -3,7 +3,7 @@ import React from 'react'
 import NavigationBar from '../components/NavigationBar'
 import Footer from '../components/Footer'
 
-export default function MainLayout (props: any) {
+const MainLayout: React.FC = (props) => {
   return (
     <>
       <NavigationBar />
@@ -12,3 +12,5 @@ export default function MainLayout (props: any) {
     </>
   )
 }
+
+export default MainLayout

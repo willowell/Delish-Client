@@ -8,7 +8,7 @@ const StyledLogo = styled.img`
     height: 60px;
 `
 
-export default function Logo () {
+const Logo: React.FC = () => {
     return (
         <StyledLogo
             src={logo}
@@ -17,3 +17,5 @@ export default function Logo () {
         />
     )
 }
+
+export default Logo
