@@ -1,9 +1,9 @@
 import React from 'react'
-import { useQuery } from '@apollo/client'
 import { RouteComponentProps } from '@reach/router'
-import Container from 'react-bootstrap/Container'
 
+import Container from 'react-bootstrap/Container'
 import MealDetailView from '../components/MealDetailView'
+
 import { useMealDetailQuery } from '../generated/graphql'
 
 interface RecipeProps extends RouteComponentProps {
@@ -11,6 +11,7 @@ interface RecipeProps extends RouteComponentProps {
 }
 
 const Recipe: React.FC<RecipeProps> = ({ recipeID }) => {
+    //TODO: Use lodash to sanitize the incoming number
     const { data, loading, error } = useMealDetailQuery({ variables: { id: Number(recipeID) } })
 
     if (loading) return <p>Loading....</p>;
