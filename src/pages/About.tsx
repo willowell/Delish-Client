@@ -26,12 +26,12 @@ const About: React.FC<RouteComponentProps> = (props) => {
     <StyledAbout>
       <Container>
         <TextContainer>
-          <div className="label">Welcome to DELISH!</div>
+          <div className='label'>Welcome to DELISH!</div>
         </TextContainer>
         <Row>
           <Col>
             <TextContainer>
-              <div className="emphasis-big center">Ever been too hungry to make up your mind about dinner?</div>
+              <div className='emphasis-big center'>Ever been too hungry to make up your mind about dinner?</div>
             </TextContainer>
           </Col>
           <Col>
@@ -44,15 +44,15 @@ const About: React.FC<RouteComponentProps> = (props) => {
           </Col>
           <Col>
             <TextContainer>
-              <div className="emphasis-big center">Ever felt overwhelmed by all the options on other recipe websites?</div>
+              <div className='emphasis-big center'>Ever felt overwhelmed by all the options on other recipe websites?</div>
             </TextContainer>
           </Col>
         </Row>
         <TextContainer>
-          <p className="emphasis-big">Look no further!</p>
-          <p className="emphasis-big">We're here to offer you a curated list of excellent recipes!</p>
-          <p className="emphasis-big">You have our promise: every dish here is</p>
-          <p className="label">DELISH !</p>
+          <p className='emphasis-big'>Look no further!</p>
+          <p className='emphasis-big'>We're here to offer you a curated list of excellent recipes!</p>
+          <p className='emphasis-big'>You have our promise: every dish here is</p>
+          <p className='label'>DELISH !</p>
         </TextContainer>
         <Logo/>
       </Container>

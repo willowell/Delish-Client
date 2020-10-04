@@ -30,22 +30,22 @@ const NavigationBar: React.FC = () => {
       <Navbar>
         <Navbar.Brand>
           <Logo/>
-          <Link className="navbar-brand" to="/">DELISH !</Link>
+          <Link className='navbar-brand' to='/'>DELISH !</Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls='responsive-navbar-nav' />
         <Navbar.Collapse id='responsive-navbar-nav'>
           <Nav className='ml-auto'>
             <Nav.Item>
-              <Link className="nav-link" to='/'>Home</Link>
+              <Link className='nav-link' to='/'>Home</Link>
             </Nav.Item>
             <Nav.Item>
-              <Link className="nav-link" to='/recipes'>Recipes</Link>
+              <Link className='nav-link' to='/recipes'>Recipes</Link>
             </Nav.Item>
             <Nav.Item>
-              <Link className="nav-link" to='/about'>About</Link>
+              <Link className='nav-link' to='/about'>About</Link>
             </Nav.Item>
             <Nav.Item>
-              <Link className="nav-link" to='/contact'>Contact</Link>
+              <Link className='nav-link' to='/contact'>Contact</Link>
             </Nav.Item>
           </Nav>
         </Navbar.Collapse>

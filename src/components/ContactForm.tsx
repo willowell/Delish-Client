@@ -14,32 +14,32 @@ const ContactForm: React.FC = () => {
 
   return (
     <Form onSubmit={ handleSubmit }>
-      <Form.Group controlId="contactForm.email">
+      <Form.Group controlId='contactForm.email'>
         <Form.Label>Email Address</Form.Label>
         <Form.Control
-          size="lg"
-          type="email"
-          placeholder="john.doe@abc.com"
+          size='lg'
+          type='email'
+          placeholder='john.doe@abc.com'
           value={ email }
           onChange={ event => setEmail(event.target.value) }
         />
-        <Form.Text className="text-muted">
+        <Form.Text className='text-muted'>
                     Your email is safe with us!
         </Form.Text>
       </Form.Group>
 
-      <Form.Group controlId="contactForm.message">
+      <Form.Group controlId='contactForm.message'>
         <Form.Label>Message</Form.Label>
         <Form.Control
-          as="textarea"
+          as='textarea'
           rows={3}
-          placeholder="Your message here"
+          placeholder='Your message here'
           value={ message }
           onChange={ event => setMessage(event.target.value) }
         />
       </Form.Group>
 
-      <Button variant="primary" type="submit">
+      <Button variant='primary' type='submit'>
                 Submit
       </Button>
     </Form>

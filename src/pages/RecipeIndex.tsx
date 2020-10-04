@@ -31,7 +31,7 @@ const RecipeIndex: React.FC<RouteComponentProps> = (props) => {
       <h1>Here's the index for the recipes page!</h1>
       <SearchForm
         targetValue={ term }
-        placeholderValue="Chicken"
+        placeholderValue='Chicken'
         handleSubmit={ handleSubmit }
         handleChange={ handleChange }
       />

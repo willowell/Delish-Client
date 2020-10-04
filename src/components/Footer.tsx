@@ -37,17 +37,17 @@ const Footer: React.FC = () => {
       <p>
         You can find the code for this website at{' '}
         <a
-          href="https://github.com/willowell/"
-          target="_blank"
-          rel="noopener noreferrer"
+          href='https://github.com/willowell/'
+          target='_blank'
+          rel='noopener noreferrer'
         >
           willowell@GitHub
         </a>
       </p>
       <a
-        href="https://loading.io/"
-        target="_blank"
-        rel="noopener noreferrer"
+        href='https://loading.io/'
+        target='_blank'
+        rel='noopener noreferrer'
       >
           Loading magnifying glass icon from loading.io
       </a>
