@@ -30,11 +30,11 @@ const StyledText = styled.div`
 `
 
 const TextContainer: React.FC = (props) => {
-    return (
-        <StyledText>
-            { props.children }
-        </StyledText>
-    )
+  return (
+    <StyledText>
+      { props.children }
+    </StyledText>
+  )
 }
 
 export default TextContainer

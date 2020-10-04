@@ -47,28 +47,28 @@ const StyledCarousel = styled.div`
 
 const HomeCarousel: React.FC = () => {
   return (
-      <StyledCarousel>
-        <Carousel>
-          <Carousel.Item>
-            <img src={omelette} alt='Slide 1' />
-            <Carousel.Caption>
-              <h1>What's for breakfast?</h1>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img src={tuna} alt='Slide 1' />
-            <Carousel.Caption>
-              <h1>What's for lunch?</h1>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img src={steak} alt='Slide 1' />
-            <Carousel.Caption>
-              <h1>What's for dinner?</h1>
-            </Carousel.Caption>
-          </Carousel.Item>
-        </Carousel>
-      </StyledCarousel>
+    <StyledCarousel>
+      <Carousel>
+        <Carousel.Item>
+          <img src={omelette} alt='Slide 1' />
+          <Carousel.Caption>
+            <h1>What's for breakfast?</h1>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img src={tuna} alt='Slide 1' />
+          <Carousel.Caption>
+            <h1>What's for lunch?</h1>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img src={steak} alt='Slide 1' />
+          <Carousel.Caption>
+            <h1>What's for dinner?</h1>
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>
+    </StyledCarousel>
   )
 }
 

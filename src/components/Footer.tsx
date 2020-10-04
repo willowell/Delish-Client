@@ -44,6 +44,13 @@ const Footer: React.FC = () => {
           willowell@GitHub
         </a>
       </p>
+      <a
+        href="https://loading.io/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+          Loading magnifying glass icon from loading.io
+      </a>
     </StyledFooter>
   )
 }

@@ -11,15 +11,15 @@ const StyledLabel = styled.h1`
 `
 
 interface TextLabelProps {
-    text: string
+  text: string
 }
 
 const TextLabel: React.FC<TextLabelProps> = (props) => {
-    return (
-        <StyledLabel>
-            <h1>{ props.text }</h1>
-        </StyledLabel>
-    )
+  return (
+    <StyledLabel>
+      <h1>{ props.text }</h1>
+    </StyledLabel>
+  )
 }
 
 export default TextLabel

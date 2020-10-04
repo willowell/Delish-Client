@@ -1,26 +1,27 @@
 import React from 'react'
-
-import Button from 'react-bootstrap/Button'
+import { Link } from '@reach/router'
 import Card from 'react-bootstrap/Card'
 
-import { MealCardQuery } from '../generated/graphql'
+import { MealTileFragment } from '../gen/graphql'
 
 interface ItemCardProps {
-    data: MealCardQuery
+  data: MealTileFragment
 }
 
 const ItemCard: React.FC<ItemCardProps> = ({ data }) => {
-    return (
-        <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={data?.mealByID?.thumbnail ?? ''} />
+  return (
+    <Card style={{ width: '18rem' }}>
+      <Card.Img variant="top" src={data?.thumbnail ?? ''} />
 
-            <Card.Body>
-                <Card.Title>{data?.mealByID?.name ?? ''}</Card.Title>
+      <Card.Body>
+        <Card.Title>{data?.name ?? ''}</Card.Title>
 
-                <Button variant="primary">Let's go!</Button>
-            </Card.Body>
-        </Card>
-    )
+        <Link to={`${data.id ?? ''}`} className="btn btn-primary" role="button">
+                    Let's go!
+        </Link>
+      </Card.Body>
+    </Card>
+  )
 }
 
 export default ItemCard

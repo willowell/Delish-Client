@@ -13,6 +13,7 @@ Hello there! This is the frontend for my Recipe Box app. I am doing two things w
 * Lodash because I love functional programming.
 * reach-router
 * React Bootstrap
+* Uses a Material Design color palette - [see here](https://material.io/resources/color/#!/?view.left=0&view.right=0&secondary.color=E040FB&primary.color=691b99&secondary.text.color=000000)!
 ----
 #### Environment Details
 * NodeJS version: 14.4.0

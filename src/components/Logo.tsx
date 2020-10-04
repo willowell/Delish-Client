@@ -9,13 +9,13 @@ const StyledLogo = styled.img`
 `
 
 const Logo: React.FC = () => {
-    return (
-        <StyledLogo
-            src={logo}
-            className='d-inline-block align-center'
-            alt='Delish logo'
-        />
-    )
+  return (
+    <StyledLogo
+      src={logo}
+      className='d-inline-block align-center'
+      alt='Delish logo'
+    />
+  )
 }
 
 export default Logo

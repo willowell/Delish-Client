@@ -8,7 +8,7 @@ import RecipeIndex from './pages/RecipeIndex'
 import Recipe from './pages/Recipe'
 import PageNotFound from './pages/PageNotFound'
 
-const Routes = () => {
+const Routes: React.FC = () => {
   return (
     <>
       <Router>
@@ -16,8 +16,8 @@ const Routes = () => {
         <About path='about' />
         <Contact path='contact' />
         <Recipes path='recipes'>
-            <RecipeIndex path='/' />
-            <Recipe path=':recipeID' />
+          <RecipeIndex path='/' />
+          <Recipe path=':recipeID' />
         </Recipes>
         <PageNotFound default />
       </Router>

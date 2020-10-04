@@ -1,8 +1,8 @@
-import { 
-    ApolloClient,
-    HttpLink,
-    InMemoryCache, 
-    NormalizedCacheObject 
+import {
+  ApolloClient,
+  HttpLink,
+  InMemoryCache,
+  NormalizedCacheObject
 } from '@apollo/client'
 import { ApolloProvider } from '@apollo/react-hooks'
 import React from 'react'

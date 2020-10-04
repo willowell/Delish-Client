@@ -22,40 +22,40 @@ const StyledAbout = styled.div`
 `
 
 const About: React.FC<RouteComponentProps> = (props) => {
-    return (
-      <StyledAbout>
-        <Container>
+  return (
+    <StyledAbout>
+      <Container>
+        <TextContainer>
+          <div className="label">Welcome to DELISH!</div>
+        </TextContainer>
+        <Row>
+          <Col>
             <TextContainer>
-                <div className="label">Welcome to DELISH!</div>
+              <div className="emphasis-big center">Ever been too hungry to make up your mind about dinner?</div>
             </TextContainer>
-            <Row>
-                <Col>
-                    <TextContainer>
-                        <div className="emphasis-big center">Ever been too hungry to make up your mind about dinner?</div>
-                    </TextContainer>
-                </Col>
-                <Col>
-                    <Image src={cheesecake} rounded fluid/>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                    <Image src={shakshuka} rounded fluid/>
-                </Col>
-                <Col>
-                    <TextContainer>
-                        <div className="emphasis-big center">Ever felt overwhelmed by all the options on other recipe websites?</div>
-                    </TextContainer>
-                </Col>
-            </Row>
+          </Col>
+          <Col>
+            <Image src={cheesecake} rounded fluid/>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Image src={shakshuka} rounded fluid/>
+          </Col>
+          <Col>
             <TextContainer>
-                <p className="emphasis-big">Look no further!</p>
-                <p className="emphasis-big">We're here to offer you a curated list of excellent recipes!</p>
-                <p className="emphasis-big">You have our promise: every dish here is</p>
-                <p className="label">DELISH !</p>
+              <div className="emphasis-big center">Ever felt overwhelmed by all the options on other recipe websites?</div>
             </TextContainer>
-            <Logo/>
-        </Container>
+          </Col>
+        </Row>
+        <TextContainer>
+          <p className="emphasis-big">Look no further!</p>
+          <p className="emphasis-big">We're here to offer you a curated list of excellent recipes!</p>
+          <p className="emphasis-big">You have our promise: every dish here is</p>
+          <p className="label">DELISH !</p>
+        </TextContainer>
+        <Logo/>
+      </Container>
     </StyledAbout>
   )
 }
