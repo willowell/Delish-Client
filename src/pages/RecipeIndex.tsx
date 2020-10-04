@@ -7,6 +7,12 @@ import Container from 'react-bootstrap/Container'
 import ItemCardGrid from '../components/ItemCardGrid'
 import { useSearchForMealsLazyQuery } from '../gen/graphql'
 
+//? From https://www.apollographql.com/blog/apollo-client-react-how-to-query-on-click-c1d4fecf9b66/
+/*
+  The idea here is to use the lazy version of a query and trigger it with a function.
+  In my case, this means using the query below, and triggering it with getSearchResults().
+*/
+
 const RecipeIndex: React.FC<RouteComponentProps> = (props) => {
   const [term, setTerm] = useState('')
   const [getSearchResults, { loading, data, error }] = useSearchForMealsLazyQuery(

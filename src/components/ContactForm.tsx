@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from 'react'
+import React, { FormEvent, useEffect, useState } from 'react'
 
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
@@ -6,6 +6,11 @@ import Form from 'react-bootstrap/Form'
 const ContactForm: React.FC = () => {
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
+  const [disabled, setDisabled] = useState(true)
+
+  const isFormValid = () => {
+
+  }
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault()
@@ -24,7 +29,7 @@ const ContactForm: React.FC = () => {
           onChange={ event => setEmail(event.target.value) }
         />
         <Form.Text className='text-muted'>
-                    Your email is safe with us!
+          Your email is safe with us!
         </Form.Text>
       </Form.Group>
 
@@ -39,8 +44,8 @@ const ContactForm: React.FC = () => {
         />
       </Form.Group>
 
-      <Button variant='primary' type='submit'>
-                Submit
+      <Button variant='primary' type='submit' disabled={ disabled }>
+        Submit
       </Button>
     </Form>
   )

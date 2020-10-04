@@ -7,7 +7,7 @@ const MainLayout: React.FC = (props) => {
   return (
     <>
       <NavigationBar />
-      {props.children}
+      { props.children }
       <Footer />
     </>
   )
