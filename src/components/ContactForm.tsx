@@ -1,16 +1,38 @@
-import React, { FormEvent, useEffect, useState } from 'react'
+import React, { FormEvent, useEffect, useRef, useState } from 'react'
 
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 
+
+//? Form validation based on the method described here:
+//? https://medium.com/@kitson.broadhurst/simple-form-validation-with-react-hooks-usestate-and-useeffect-57620d808cc8
+
 const ContactForm: React.FC = () => {
-  const [email, setEmail] = useState('')
-  const [message, setMessage] = useState('')
-  const [disabled, setDisabled] = useState(true)
+  const [email, setEmail]               = useState('')
+  const [message, setMessage]           = useState('')
+  const [disabled, setDisabled]         = useState(true)
+  const [emailError, setEmailError]     = useState('')
 
-  const isFormValid = () => {
+  const firstRender = useRef(true)
 
+  const isFormValid = (): boolean => {
+    if (email === '') {
+      setEmailError('Email cannot be blank!')
+      return false
+    } else {
+      setEmailError('')
+      return true
+    }
   }
+
+  useEffect(() => {
+    if (firstRender.current) {
+      firstRender.current = false
+      return
+    }
+
+    setDisabled(!isFormValid())
+  }, [email])
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault()
@@ -27,9 +49,10 @@ const ContactForm: React.FC = () => {
           placeholder='john.doe@abc.com'
           value={ email }
           onChange={ event => setEmail(event.target.value) }
+          isValid={!!!emailError}
         />
         <Form.Text className='text-muted'>
-          Your email is safe with us!
+          { !!!emailError ? "Your email is safe with us!" : emailError }
         </Form.Text>
       </Form.Group>
 
