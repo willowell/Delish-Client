@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, FormEvent, FormEventHandler, useState } from 'react'
+import React, { ChangeEventHandler, FormEvent, FormEventHandler, KeyboardEventHandler, useState } from 'react'
 
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
@@ -8,9 +8,10 @@ interface SearchFormProps {
   placeholderValue: string
   handleSubmit: FormEventHandler
   handleChange: ChangeEventHandler
+  handleKeyPress: KeyboardEventHandler
 }
 
-const SearchForm: React.FC<SearchFormProps> = ({ targetValue, placeholderValue, handleSubmit, handleChange }: SearchFormProps) => {
+const SearchForm: React.FC<SearchFormProps> = ({ targetValue, placeholderValue, handleSubmit, handleChange, handleKeyPress }: SearchFormProps) => {
   return (
     <Form onSubmit={ handleSubmit }>
       <Form.Group controlId='searchForm'>
@@ -20,6 +21,7 @@ const SearchForm: React.FC<SearchFormProps> = ({ targetValue, placeholderValue, 
           placeholder={ placeholderValue }
           value={ targetValue }
           onChange={ handleChange }
+          onKeyPress={ handleKeyPress }
         />
       </Form.Group>
 

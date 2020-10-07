@@ -15,17 +15,18 @@ const ContactForm: React.FC = () => {
 
   const firstRender = useRef(true)
 
-  const isFormValid = (): boolean => {
-    if (email === '') {
-      setEmailError('Email cannot be blank!')
-      return false
-    } else {
-      setEmailError('')
-      return true
-    }
-  }
 
   useEffect(() => {
+    const isFormValid = (): boolean => {
+      if (email === '') {
+        setEmailError('Email cannot be blank!')
+        return false
+      } else {
+        setEmailError('')
+        return true
+      }
+    }
+
     if (firstRender.current) {
       firstRender.current = false
       return
@@ -34,10 +35,12 @@ const ContactForm: React.FC = () => {
     setDisabled(!isFormValid())
   }, [email])
 
+
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault()
     alert(`Submitting "${message}" from "${email}"!`)
   }
+
 
   return (
     <Form onSubmit={ handleSubmit }>
@@ -49,7 +52,8 @@ const ContactForm: React.FC = () => {
           placeholder='john.doe@abc.com'
           value={ email }
           onChange={ event => setEmail(event.target.value) }
-          isValid={!!!emailError}
+          isValid={ !disabled }
+          isInvalid={ disabled }
         />
         <Form.Text className='text-muted'>
           { !!!emailError ? "Your email is safe with us!" : emailError }
