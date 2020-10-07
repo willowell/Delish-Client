@@ -13,3 +13,20 @@ I need to suppress this behaviour and make sure the form re-queries the server o
 ##### 2: Empty Contact Form
 
 The contact form at /contact (Contact.tsx) can submit an empty form. Ideally, the form will instead highlight the empty fields.
+
+## 2020 October 7
+
+##### 3: Navbar does not fit on mobile
+
+On a mobile device (in my case, a Pixel phone), the links on the navigation bar run off the screen. Interestingly, *only* the links run off - the rest of the navigation bar is fine!
+
+Maybe I can fold the links into a hamburger menu?
+
+##### 4: Meal images and YouTube videos do not fit on mobile
+
+Ditto.
+*Note*: The images in /about *do* fit just fine. Inspect their CSS.
+
+The meal cards in /recipes look fine although they need to be centered.
+
+##### 5: Link colours are hard to read
