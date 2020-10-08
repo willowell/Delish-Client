@@ -8,7 +8,7 @@ import ItemCardGrid from '../components/ItemCardGrid'
 import { useSearchForMealsLazyQuery } from '../gen/graphql'
 import MealDebugTable from '../components/MealDebugTable'
 
-//? From https://www.apollographql.com/blog/apollo-client-react-how-to-query-on-click-c1d4fecf9b66/
+// ? From https://www.apollographql.com/blog/apollo-client-react-how-to-query-on-click-c1d4fecf9b66/
 /*
   The idea here is to use the lazy version of a query and trigger it with a function.
   In my case, this means using the query below, and triggering it with getSearchResults().
@@ -29,7 +29,7 @@ const RecipeIndex: React.FC<RouteComponentProps> = (props) => {
   const handleChange: ChangeEventHandler<any> = (event) => setTerm(event.target.value)
 
   const handleKeyPress: KeyboardEventHandler<any> = (event) => {
-    if (event.key === "Enter") {
+    if (event.key === 'Enter') {
       getSearchResults()
     }
   }

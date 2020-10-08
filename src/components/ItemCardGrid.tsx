@@ -13,9 +13,7 @@ const ItemCardGrid: React.FC<ItemCardGridProps> = ({ data }) => {
   const cards = data?.mealsByArbitraryString?.map((item, i) => {
     return (
       <>
-        {item &&
-                <ItemCard key={i} data={ item }/>
-        }
+        { item ? <ItemCard key={i} data={ item }/> : <p>NULL</p> }
       </>
     )
   })

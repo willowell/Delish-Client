@@ -11,11 +11,11 @@ const MealDebugTable: React.FC<MealDebugTableProps> = ({ data }) => {
   const rows = data?.mealsByArbitraryString?.map((item, i) => {
     return (
       <tr key={i}>
-        <td>{ item?.id }</td>
+        <td>{ item?.id ?? '???'}</td>
         <td>{ item?.name ?? '???' }</td>
         <td>
-          <Link to={`${ item?.id }`}>
-            {`${ item?.id }`}
+          <Link to={`${item?.id}`}>
+            {`${item?.id}`}
           </Link>
         </td>
       </tr>

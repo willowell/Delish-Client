@@ -25,7 +25,7 @@ const Recipe: React.FC<RecipeProps> = ({ recipeID }) => {
 
   return (
     <Container>
-      <MealDetailView data={data} />
+      { data ? <MealDetailView data={data} /> : <p>Hmm...</p> }
     </Container>
   )
 }
