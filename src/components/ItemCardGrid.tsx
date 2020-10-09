@@ -10,13 +10,9 @@ interface ItemCardGridProps {
 }
 
 const ItemCardGrid: React.FC<ItemCardGridProps> = ({ data }) => {
-  const cards = data?.mealsByArbitraryString?.map((item, i) => {
-    return (
-      <>
-        { item ? <ItemCard key={i} data={ item }/> : <p>NULL</p> }
-      </>
-    )
-  })
+  const cards = data?.mealsByArbitraryString?.map((item, i) => 
+    item && <ItemCard key={ i } data={ item } />
+  )
 
   return (
     <CardColumns>
