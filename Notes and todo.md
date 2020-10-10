@@ -6,6 +6,8 @@
 
 [Adding an enter keypress event handler to a form](https://stackoverflow.com/questions/34223558/enter-key-event-handler-on-react-bootstrap-input-component)
 
+[A React hook for local storage](https://www.robinwieruch.de/local-storage-react)
+
 #### Bugs
 
 ##### 1: Search is Too Eager
