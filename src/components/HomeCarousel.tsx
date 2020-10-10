@@ -13,36 +13,36 @@ import steak from '../assets/52935-steak-diane.jpg'
 // ? https://codepen.io/JacobLett/pen/weqOjq?editors=1000
 
 const StyledCarousel = styled.div`
-    /*
-    Removes white gap between slides - chagnge to base color of slide images
-    */
-    .carousel {
-        background: ${colors.primary.dark};
-    }
+  /*
+  Removes white gap between slides - chagnge to base color of slide images
+  */
+  .carousel {
+    background: ${colors.primary.dark};
+  }
 
-    /*
-    Forces image to be 100% width and not max width of 100%
-    */
-    .carousel-item img {
-        object-fit: cover;
-        width: 100%;
-        max-height: 500px;
-    }
+  /*
+  Forces image to be 100% width and not max width of 100%
+  */
+  .carousel-item img {
+    object-fit: cover;
+    width: 100%;
+    max-height: 500px;
+  }
 
-    /* 
-    anchors are inline so you need to make them block to go full width
-    */
-    .carousel-item a h1 {
-        display: block;
-        width: 100%;
-    }
+  /* 
+  anchors are inline so you need to make them block to go full width
+  */
+  .carousel-item a h1 {
+    display: block;
+    width: 100%;
+  }
 
-    .carousel-caption {
-        font-family: Mogra;
-        font-weight: bold;
-        color: white;
-        -webkit-text-stroke: 2px ${colors.primary.main};
-    }
+  .carousel-caption {
+    font-family: Mogra;
+    font-weight: bold;
+    color: white;
+    -webkit-text-stroke: 2px ${colors.primary.main};
+  }
 `
 
 const HomeCarousel: React.FC = () => {
