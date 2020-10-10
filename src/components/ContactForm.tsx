@@ -15,6 +15,10 @@ const ContactForm: React.FC = () => {
   const firstRender = useRef(true)
 
   useEffect(() => {
+    // ? See https://stackoverflow.com/questions/55840294/how-to-fix-missing-dependency-warning-when-using-useeffect-react-hook
+    // ? for why this function is here rather than outside useEffect()
+    // ? Basically, it is because setDisabled(!isFormValid()) makes this
+    // ? function a dependency.
     const isFormValid = (): boolean => {
       if (email === '') {
         setEmailError('Email cannot be blank!')

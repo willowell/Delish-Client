@@ -2,6 +2,10 @@
 
 ## 2020 October 4
 
+#### Helpful Links
+
+[Adding an enter keypress event handler to a form](https://stackoverflow.com/questions/34223558/enter-key-event-handler-on-react-bootstrap-input-component)
+
 #### Bugs
 
 ##### 1: Search is Too Eager
