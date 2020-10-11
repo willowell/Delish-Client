@@ -1,4 +1,10 @@
-import React, { FormEvent, useEffect, useRef, useState } from 'react'
+import React, { 
+  ChangeEventHandler, 
+  FormEventHandler, 
+  useEffect, 
+  useRef, 
+  useState 
+} from 'react'
 
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
@@ -8,23 +14,34 @@ import Form from 'react-bootstrap/Form'
 
 const ContactForm: React.FC = () => {
   const [email, setEmail] = useState('')
-  const [message, setMessage] = useState('')
-  const [disabled, setDisabled] = useState(true)
   const [emailError, setEmailError] = useState('')
+  
+
+  const [message, setMessage] = useState('')
+  const [messageError, setMessageError] = useState('')
+  
+  const [disabled, setDisabled] = useState(true)
 
   const firstRender = useRef(true)
 
   useEffect(() => {
-    // ? See https://stackoverflow.com/questions/55840294/how-to-fix-missing-dependency-warning-when-using-useeffect-react-hook
-    // ? for why this function is here rather than outside useEffect()
-    // ? Basically, it is because setDisabled(!isFormValid()) makes this
-    // ? function a dependency.
-    const isFormValid = (): boolean => {
+
+    const isEmailValid = (): boolean => {
       if (email === '') {
-        setEmailError('Email cannot be blank!')
+        setEmailError('Email cannot be empty!')
         return false
       } else {
         setEmailError('')
+        return true
+      }
+    }
+
+    const isMessageValid = (): boolean => {
+      if (message === '') {
+        setMessageError('Message cannot be empty!')
+        return false
+      } else {
+        setMessageError('')
         return true
       }
     }
@@ -34,10 +51,28 @@ const ContactForm: React.FC = () => {
       return
     }
 
-    setDisabled(!isFormValid())
-  }, [email])
+    // ? See https://stackoverflow.com/questions/55840294/how-to-fix-missing-dependency-warning-when-using-useeffect-react-hook
+    // ? for why this function is here rather than outside useEffect()
+    // ? Basically, it is because setDisabled(!isFormValid()) makes this
+    // ? function a dependency.
+    const isFormValid = (): boolean => {
+      let isValid = true
 
-  const handleSubmit = (event: FormEvent) => {
+      if (!isEmailValid()) {
+        isValid = false
+      }
+       
+      if (!isMessageValid()) {
+        isValid = false
+      }
+
+      return isValid
+    }
+
+    setDisabled(!isFormValid())
+  }, [email, message])
+
+  const handleSubmit: FormEventHandler<any> = (event) => {
     event.preventDefault()
     alert(`Submitting "${message}" from "${email}"!`)
   }
@@ -52,8 +87,8 @@ const ContactForm: React.FC = () => {
           placeholder='john.doe@abc.com'
           value={ email }
           onChange={ event => setEmail(event.target.value) }
-          isValid={ !disabled }
-          isInvalid={ disabled }
+          isValid={ !emailError }
+          isInvalid={ !!emailError }
         />
         <Form.Text className='text-muted'>
           { !emailError ? 'Your email is safe with us!' : emailError }
@@ -64,11 +99,16 @@ const ContactForm: React.FC = () => {
         <Form.Label>Message</Form.Label>
         <Form.Control
           as='textarea'
-          rows={3}
+          rows={ 3 }
           placeholder='Your message here'
           value={ message }
           onChange={ event => setMessage(event.target.value) }
+          isValid={ !messageError }
+          isInvalid={ !!messageError }
         />
+        <Form.Text className='text-muted'>
+          { !messageError ? 'We\'ll protect your message with our strongest aluminum foil!' : messageError }
+        </Form.Text>
       </Form.Group>
 
       <Button variant='primary' type='submit' disabled={ disabled }>

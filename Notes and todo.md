@@ -18,6 +18,8 @@
 [Using an intermediate variable with an Apollo Client query](https://stackoverflow.com/questions/55890604/how-to-implement-search-function-in-react-graphql-using-react-hooks-and-apollo-c)
 ^ This one helped me fix Bug 1.
 
+[Form validation](https://www.itsolutionstuff.com/post/react-form-validation-tutorial-exampleexample.html)
+Note: more in `src/lib/hooks.ts`.
 
 #### Bugs
 
@@ -32,6 +34,8 @@ I need to suppress this behaviour and make sure the form re-queries the server o
 ##### 2: Empty Contact Form
 
 The contact form at /contact (Contact.tsx) can submit an empty form. Ideally, the form will instead highlight the empty fields.
+
+##### FIXED 2020-October-11
 
 ## 2020 October 7
 
