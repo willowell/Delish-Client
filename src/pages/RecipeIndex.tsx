@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, FormEventHandler, useEffect, useRef, useState } from 'react'
+import React, { ChangeEventHandler, FormEventHandler, useState } from 'react'
 import { RouteComponentProps } from '@reach/router'
 
 import SearchForm from '../components/SearchForm'
@@ -6,7 +6,6 @@ import SearchForm from '../components/SearchForm'
 import Container from 'react-bootstrap/Container'
 import ItemCardGrid from '../components/ItemCardGrid'
 import { useSearchForMealsLazyQuery } from '../gen/graphql'
-import MealDebugTable from '../components/MealDebugTable'
 import Error from '../components/Error'
 import Loading from '../components/Loading'
 import { useStateWithLocalStorage } from '../lib/hooks'
@@ -21,46 +20,66 @@ const RecipeIndex: React.FC<RouteComponentProps> = (props) => {
   const [term, setTerm] = useState('')
   const [currentTerm, setCurrentTerm] = useState('')
   const [lastTerm, setLastTerm] = useStateWithLocalStorage('lastTerm')
+  const [timesSearched, setTimesSearched] = useState(0)
+
   const [getSearchResults, { loading, data, error }] = useSearchForMealsLazyQuery(
     { variables: { str: term } }
   )
 
-  const firstRender = useRef(true)
-
   const handleSubmit: FormEventHandler<any> = (event) => {
     event.preventDefault()
-    setTerm(currentTerm)
+    // Set the search term to either the last term or the current term,
+    // whichever is not falsy.
+    setTerm(lastTerm || currentTerm)
     getSearchResults()
+    setTimesSearched(timesSearched + 1)
   }
 
   const handleChange: ChangeEventHandler<any> = (event) => {
+    // Set both the last term and the current term.
     setLastTerm(event.target.value)
     setCurrentTerm(event.target.value)
   }
 
-  useEffect(() => {
-    if (firstRender.current) {
-      firstRender.current = false
+  const ResultsResponse = () => {
+    if (timesSearched === 0) {
+      return <h1>Enter something!</h1>
+    } else if (timesSearched > 0) {
+      return <h1>No results!</h1>
+    } else {
+      return <></>
     }
-  }, [])
+  }
 
-  if (error) return <Error error={ error } />
+  const Results = () => {
+    // if the data is okay and there are results,
+    // then display the data.
+    // Otherwise, render a message instead based on how many times
+    // the user has searched something.
+    if (data && data.mealsByArbitraryString?.length) {
+      return <ItemCardGrid data={ data } />
+    } else {
+      return <ResultsResponse />
+    }
+  }
 
+  // Bail out and render the error.
+  if (error) {
+    return <Error error={ error } />
+  }
+
+  // The placeholder is either the last term from local storage
+  // or 'Chicken' if the last term is empty.
   return (
     <Container>
       <h1>Let's get cooking!</h1>
       <SearchForm
-        placeholderValue='Chicken'
+        placeholderValue={ lastTerm || 'Chicken' }
         handleSubmit={ handleSubmit }
         handleChange={ handleChange }
-        targetValue={ lastTerm || currentTerm }
+        targetValue={ currentTerm }
       />
-      {
-        loading ? <Loading /> :
-          data && data.mealsByArbitraryString?.length
-            ? <ItemCardGrid data={ data } />
-            : (!firstRender.current && <h1>No results!</h1>)
-      }
+      { loading ? <Loading /> : <Results /> }
     </Container>
   )
 }

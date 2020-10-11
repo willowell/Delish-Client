@@ -16,7 +16,7 @@ export const useStateWithLocalStorage = (localStorageKey: string) => {
   // Whenever value changes, update the corresponding value in local storage.
   React.useEffect(() => {
     localStorage.setItem(localStorageKey, value)
-  }, [value])
+  }, [value, localStorageKey])
 
   return [value, setValue] as const
 }

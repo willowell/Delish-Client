@@ -18,6 +18,8 @@ The search form at /recipes (RecipeIndex.tsx) is very eager. After clicking "Let
 
 I need to suppress this behaviour and make sure the form re-queries the server only when the user clicks the submit button.
 
+##### FIXED 2020-October-11
+
 ##### 2: Empty Contact Form
 
 The contact form at /contact (Contact.tsx) can submit an empty form. Ideally, the form will instead highlight the empty fields.
