@@ -8,6 +8,8 @@
 
 [A React hook for local storage](https://www.robinwieruch.de/local-storage-react)
 
+[as const in the custom hook return type](https://stackoverflow.com/a/61694742)
+
 #### Bugs
 
 ##### 1: Search is Too Eager

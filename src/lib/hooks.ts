@@ -18,5 +18,5 @@ export const useStateWithLocalStorage = (localStorageKey: string) => {
     localStorage.setItem(localStorageKey, value)
   }, [value])
 
-  return [value, setValue]
+  return [value, setValue] as const
 }

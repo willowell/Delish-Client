@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, FormEventHandler, KeyboardEventHandler, useState } from 'react'
+import React, { useState } from 'react'
 import { RouteComponentProps } from '@reach/router'
 
 import SearchForm from '../components/SearchForm'
@@ -18,23 +18,9 @@ import Loading from '../components/Loading'
 
 const RecipeIndex: React.FC<RouteComponentProps> = (props) => {
   const [term, setTerm] = useState('')
-  const [lastTerm, setLastTerm] = useState('')
   const [getSearchResults, { loading, data, error }] = useSearchForMealsLazyQuery(
     { variables: { str: term } }
   )
-
-  const handleSubmit: FormEventHandler<any> = (event) => {
-    event.preventDefault()
-    getSearchResults()
-  }
-
-  const handleChange: ChangeEventHandler<any> = (event) => setTerm(event.target.value)
-
-  const handleKeyPress: KeyboardEventHandler<any> = (event) => {
-    if (event.key === 'Enter') {
-      getSearchResults()
-    }
-  }
 
   // It seems enabling the first two causes my search form to be a bit too eager!
   // TODO: Perhaps there is a way to update the search results ONLY when the user presses submit?
@@ -48,9 +34,19 @@ const RecipeIndex: React.FC<RouteComponentProps> = (props) => {
       <SearchForm
         targetValue={ term }
         placeholderValue='Chicken'
-        handleSubmit={ handleSubmit }
-        handleChange={ handleChange }
-        handleKeyPress={ handleKeyPress }
+        handleSubmit={ 
+          (event) => getSearchResults() 
+        }
+        handleChange={ 
+          (event: any) => setTerm(event.target.value) 
+        }
+        handleKeyPress={ 
+          (event) => {
+            if (event.key === 'Enter') {
+              getSearchResults()
+            }
+          } 
+        }
       />
       <ItemCardGrid data={ data } />
       <MealDebugTable data={ data } />
