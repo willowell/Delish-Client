@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { ChangeEventHandler, FormEventHandler, useState } from 'react'
 import { RouteComponentProps } from '@reach/router'
 
 import SearchForm from '../components/SearchForm'
@@ -9,6 +9,7 @@ import { useSearchForMealsLazyQuery } from '../gen/graphql'
 import MealDebugTable from '../components/MealDebugTable'
 import Error from '../components/Error'
 import Loading from '../components/Loading'
+import { useStateWithLocalStorage } from '../lib/hooks'
 
 // ? From https://www.apollographql.com/blog/apollo-client-react-how-to-query-on-click-c1d4fecf9b66/
 /*
@@ -19,9 +20,21 @@ import Loading from '../components/Loading'
 const RecipeIndex: React.FC<RouteComponentProps> = (props) => {
   const [term, setTerm] = useState('')
   const [currentTerm, setCurrentTerm] = useState('')
+  const [lastTerm, setLastTerm] = useStateWithLocalStorage('lastTerm')
   const [getSearchResults, { loading, data, error }] = useSearchForMealsLazyQuery(
     { variables: { str: term } }
   )
+
+  const handleSubmit: FormEventHandler<any> = (event) => {
+    event.preventDefault()
+    setTerm(currentTerm)
+    getSearchResults()
+  }
+
+  const handleChange: ChangeEventHandler<any> = (event) => {
+    setLastTerm(event.target.value)
+    setCurrentTerm(event.target.value)
+  }
 
   // It seems enabling the first two causes my search form to be a bit too eager!
   // TODO: Perhaps there is a way to update the search results ONLY when the user presses submit?
@@ -33,17 +46,10 @@ const RecipeIndex: React.FC<RouteComponentProps> = (props) => {
     <Container>
       <h1>Here's the index for the recipes page!</h1>
       <SearchForm
-        targetValue={ currentTerm }
         placeholderValue='Chicken'
-        handleSubmit={ 
-          (event) => {
-            setTerm(currentTerm)
-            getSearchResults()
-          }
-        }
-        handleChange={ 
-          (event: any) => setCurrentTerm(event.target.value) 
-        }
+        handleSubmit={ handleSubmit }
+        handleChange={ handleChange }
+        targetValue={ lastTerm || currentTerm }
       />
       <ItemCardGrid data={ data } />
       <MealDebugTable data={ data } />
