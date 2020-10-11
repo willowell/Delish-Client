@@ -18,6 +18,7 @@ import Loading from '../components/Loading'
 
 const RecipeIndex: React.FC<RouteComponentProps> = (props) => {
   const [term, setTerm] = useState('')
+  const [currentTerm, setCurrentTerm] = useState('')
   const [getSearchResults, { loading, data, error }] = useSearchForMealsLazyQuery(
     { variables: { str: term } }
   )
@@ -32,20 +33,16 @@ const RecipeIndex: React.FC<RouteComponentProps> = (props) => {
     <Container>
       <h1>Here's the index for the recipes page!</h1>
       <SearchForm
-        targetValue={ term }
+        targetValue={ currentTerm }
         placeholderValue='Chicken'
         handleSubmit={ 
-          (event) => getSearchResults() 
+          (event) => {
+            setTerm(currentTerm)
+            getSearchResults()
+          }
         }
         handleChange={ 
-          (event: any) => setTerm(event.target.value) 
-        }
-        handleKeyPress={ 
-          (event) => {
-            if (event.key === 'Enter') {
-              getSearchResults()
-            }
-          } 
+          (event: any) => setCurrentTerm(event.target.value) 
         }
       />
       <ItemCardGrid data={ data } />

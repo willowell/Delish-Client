@@ -9,10 +9,10 @@ interface SearchFormProps {
   placeholderValue: string
   handleSubmit: FormEventHandler
   handleChange: ChangeEventHandler
-  handleKeyPress: KeyboardEventHandler
 }
 
-const SearchForm: React.FC<SearchFormProps> = ({ targetValue, placeholderValue, handleSubmit, handleChange, handleKeyPress }: SearchFormProps) => {
+const SearchForm: React.FC<SearchFormProps> = 
+  ({ targetValue, placeholderValue, handleSubmit, handleChange }: SearchFormProps) => {
   const [lastTerm, setLastTerm] = useStateWithLocalStorage('lastTerm')
   
   const onSubmit: FormEventHandler<any> = (event) => {
@@ -25,10 +25,6 @@ const SearchForm: React.FC<SearchFormProps> = ({ targetValue, placeholderValue, 
     handleChange(event)
   }
 
-  const onKeyPress: KeyboardEventHandler<any> = (event) => {
-    handleKeyPress(event)
-  }
-
   return (
     <Form onSubmit={ onSubmit }>
       <Form.Group controlId='searchForm'>
@@ -38,11 +34,8 @@ const SearchForm: React.FC<SearchFormProps> = ({ targetValue, placeholderValue, 
           placeholder={ placeholderValue }
           value={ lastTerm || targetValue }
           onChange={ onChange }
-          onKeyPress={ onKeyPress }
         />
       </Form.Group>
-
-      <Button variant='primary' type='submit'>Let's go!</Button>
     </Form>
   )
 }
