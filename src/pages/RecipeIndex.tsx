@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, FormEventHandler, useState } from 'react'
+import React, { ChangeEventHandler, FormEventHandler, useEffect, useRef, useState } from 'react'
 import { RouteComponentProps } from '@reach/router'
 
 import SearchForm from '../components/SearchForm'
@@ -25,6 +25,8 @@ const RecipeIndex: React.FC<RouteComponentProps> = (props) => {
     { variables: { str: term } }
   )
 
+  const firstRender = useRef(true)
+
   const handleSubmit: FormEventHandler<any> = (event) => {
     event.preventDefault()
     setTerm(currentTerm)
@@ -36,24 +38,29 @@ const RecipeIndex: React.FC<RouteComponentProps> = (props) => {
     setCurrentTerm(event.target.value)
   }
 
-  // It seems enabling the first two causes my search form to be a bit too eager!
-  // TODO: Perhaps there is a way to update the search results ONLY when the user presses submit?
-  if (loading) return <Loading />
+  useEffect(() => {
+    if (firstRender.current) {
+      firstRender.current = false
+    }
+  }, [])
+
   if (error) return <Error error={ error } />
-  // IGNORE if (!data) return <p>Not found!</p>
 
   return (
     <Container>
-      <h1>Here's the index for the recipes page!</h1>
+      <h1>Let's get cooking!</h1>
       <SearchForm
         placeholderValue='Chicken'
         handleSubmit={ handleSubmit }
         handleChange={ handleChange }
         targetValue={ lastTerm || currentTerm }
       />
-      <ItemCardGrid data={ data } />
-      <MealDebugTable data={ data } />
-
+      {
+        loading ? <Loading /> :
+          data && data.mealsByArbitraryString?.length
+            ? <ItemCardGrid data={ data } />
+            : (!firstRender.current && <h1>No results!</h1>)
+      }
     </Container>
   )
 }
