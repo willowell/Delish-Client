@@ -3,12 +3,21 @@
 ## 2020 October 4
 
 #### Helpful Links
+**Note**: there are additional links sprinkled around the codebase!
 
 [Adding an enter keypress event handler to a form](https://stackoverflow.com/questions/34223558/enter-key-event-handler-on-react-bootstrap-input-component)
+
+[A similar question about an enter keypress](https://stackoverflow.com/questions/51806208/how-do-i-use-enter-to-submit-the-semantic-react-search)
 
 [A React hook for local storage](https://www.robinwieruch.de/local-storage-react)
 
 [as const in the custom hook return type](https://stackoverflow.com/a/61694742)
+
+[Sharing state between sibling components](https://stackoverflow.com/questions/47864929/how-to-render-results-of-search-in-another-component-in-react)
+
+[Using an intermediate variable with an Apollo Client query](https://stackoverflow.com/questions/55890604/how-to-implement-search-function-in-react-graphql-using-react-hooks-and-apollo-c)
+^ This one helped me fix Bug 1.
+
 
 #### Bugs
 
