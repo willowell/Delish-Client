@@ -56,7 +56,7 @@ const RecipeIndex: React.FC<RouteComponentProps> = (props) => {
     // then display the data.
     // Otherwise, render a message instead based on how many times
     // the user has searched something.
-    if (data && data.mealsByArbitraryString?.length) {
+    if (data?.mealsByArbitraryString?.length) {
       return <ItemCardGrid data={ data } />
     } else {
       return <ResultsResponse />

@@ -9,22 +9,21 @@ interface SearchFormProps {
   handleChange: ChangeEventHandler
 }
 
-const SearchForm: React.FC<SearchFormProps> = 
+const SearchForm: React.FC<SearchFormProps> =
   ({ targetValue, placeholderValue, handleSubmit, handleChange }: SearchFormProps) => {
-  
-  return (
-    <Form onSubmit={ handleSubmit }>
-      <Form.Group controlId='searchForm'>
-        <Form.Control
-          size='lg'
-          type='text'
-          placeholder={ placeholderValue }
-          value={ targetValue }
-          onChange={ handleChange }
-        />
-      </Form.Group>
-    </Form>
-  )
-}
+    return (
+      <Form onSubmit={ handleSubmit }>
+        <Form.Group controlId='searchForm'>
+          <Form.Control
+            size='lg'
+            type='text'
+            placeholder={ placeholderValue }
+            value={ targetValue }
+            onChange={ handleChange }
+          />
+        </Form.Group>
+      </Form>
+    )
+  }
 
 export default SearchForm

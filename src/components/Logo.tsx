@@ -15,5 +15,4 @@ const Logo: React.FC = () =>
     alt='Delish logo'
   />
 
-
 export default Logo

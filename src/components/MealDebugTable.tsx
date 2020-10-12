@@ -14,8 +14,8 @@ const MealDebugTable: React.FC<MealDebugTableProps> = ({ data }) => {
         <td>{ item?.id ?? '???'}</td>
         <td>{ item?.name ?? '???' }</td>
         <td>
-          <Link to={`${item?.id}`}>
-            {`${item?.id}`}
+          <Link to={`${item?.id ?? ''}`}>
+            {`${item?.id ?? ''}`}
           </Link>
         </td>
       </tr>

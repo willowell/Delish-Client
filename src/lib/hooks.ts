@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 // ? From https://rangle.io/blog/simplifying-controlled-inputs-with-hooks/
 /**
  * Creates and manages a string value, returning handles to the value along with methods
@@ -30,7 +29,7 @@ export const useStateWithLocalStorage = (localStorageKey: string) => {
   const [value, setValue] = React.useState(
     // If the item already exists in local storage, use that
     // Otherwise, use the empty string.
-    localStorage.getItem(localStorageKey) || ''
+    localStorage.getItem(localStorageKey) ?? ''
   )
 
   // Whenever value changes, update the corresponding value in local storage.

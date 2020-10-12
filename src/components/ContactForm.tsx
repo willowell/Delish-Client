@@ -1,8 +1,8 @@
-import React, { 
-  FormEventHandler, 
-  useEffect, 
-  useRef, 
-  useState 
+import React, {
+  FormEventHandler,
+  useEffect,
+  useRef,
+  useState
 } from 'react'
 
 import Button from 'react-bootstrap/Button'
@@ -14,16 +14,15 @@ import Form from 'react-bootstrap/Form'
 const ContactForm: React.FC = () => {
   const [email, setEmail] = useState('')
   const [emailError, setEmailError] = useState('')
-  
+
   const [message, setMessage] = useState('')
   const [messageError, setMessageError] = useState('')
-  
+
   const [disabled, setDisabled] = useState(true)
 
   const firstRender = useRef(true)
 
   useEffect(() => {
-
     const isEmailValid = (): boolean => {
       if (email === '') {
         setEmailError('Email cannot be empty!')
@@ -59,7 +58,7 @@ const ContactForm: React.FC = () => {
       if (!isEmailValid()) {
         isValid = false
       }
-       
+
       if (!isMessageValid()) {
         isValid = false
       }
