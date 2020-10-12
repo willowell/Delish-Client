@@ -1,5 +1,4 @@
 import React, { 
-  ChangeEventHandler, 
   FormEventHandler, 
   useEffect, 
   useRef, 
@@ -16,7 +15,6 @@ const ContactForm: React.FC = () => {
   const [email, setEmail] = useState('')
   const [emailError, setEmailError] = useState('')
   
-
   const [message, setMessage] = useState('')
   const [messageError, setMessageError] = useState('')
   
