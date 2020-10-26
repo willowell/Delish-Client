@@ -1,11 +1,13 @@
 {
-  "name": "recipe-box",
+  "name": "delish",
   "description": "A web app frontend for my Apollo GraphQL server for TheMealDB",
   "keywords": [
     "apollo",
     "apollo-client",
     "emotion",
     "react",
+    "reactjs",
+    "typescript",
     "thedatadb",
     "themealdb",
     "food",
@@ -16,7 +18,7 @@
   "version": "1.0.1",
   "author": "William Howell <wlm.howell@gmail.com>",
   "repository": {
-    "url": "https://github.com/willowell/Recipe-Box-Client"
+    "url": "https://github.com/willowell/Delish-Client"
   },
   "license": "MIT",
   "main": "index.js",

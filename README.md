@@ -1,8 +1,8 @@
-# Recipe Box
+# DELISH !
 ### Apollo GraphQL Web Application for TheMealDB
 #### TheMealDB: https://www.themealdb.com/
 ----
-Hello there! This is the frontend for my Recipe Box app. I am doing two things with this web app:
+Hello there! This is the frontend for my Allrecipes-like web app called "DELISH !". I am doing two things with this web app:
 * Building on my knowledge from [my last Apollo server](https://github.com/willowell/Apollo-GraphQL-Server-for-REST-Countries).
 * Working on [this project](https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Recipe-App.md) for my portfolio.
 
