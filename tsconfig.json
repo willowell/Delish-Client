@@ -19,11 +19,12 @@
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
     "noEmit": true,
-    "jsx": "preserve",
+    "jsx": "react",
     "typeRoots": [
       "node_modules/@types",
       "@types"
-    ]
+    ],
+    "noFallthroughCasesInSwitch": true
   },
   "include": [
     "src/**/*",
