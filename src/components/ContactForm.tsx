@@ -84,11 +84,11 @@ const ContactForm: React.FC = () => {
           placeholder='john.doe@abc.com'
           value={ email }
           onChange={ event => setEmail(event.target.value) }
-          isValid={ !emailError }
-          isInvalid={ !!emailError }
+          isValid={ emailError !== '' }
+          isInvalid={ !(emailError !== '') }
         />
         <Form.Text className='text-muted'>
-          { !emailError ? 'Your email is safe with us!' : emailError }
+          { emailError !== '' ? 'Your email is safe with us!' : emailError }
         </Form.Text>
       </Form.Group>
 
@@ -100,11 +100,11 @@ const ContactForm: React.FC = () => {
           placeholder='Your message here'
           value={ message }
           onChange={ event => setMessage(event.target.value) }
-          isValid={ !messageError }
-          isInvalid={ !!messageError }
+          isValid={ messageError !== '' }
+          isInvalid={ !(messageError !== '') }
         />
         <Form.Text className='text-muted'>
-          { !messageError ? 'We\'ll protect your message with our strongest aluminum foil!' : messageError }
+          { messageError !== '' ? 'We\'ll protect your message with our strongest aluminum foil!' : messageError }
         </Form.Text>
       </Form.Group>
 

@@ -20,8 +20,8 @@ const Recipe: React.FC<RecipeProps> = ({ recipeID }) => {
   const { data, loading, error } = useMealDetailQuery({ variables: { id: Number(recipeID) } })
 
   if (loading) return <Loading />
-  if (error) return <Error error={error} />
-  if (!data) return <p>Not found</p>
+  if (error !== undefined) return <Error error={error} />
+  if (data === undefined) return <p>Not found</p>
 
   return (
     <Container>

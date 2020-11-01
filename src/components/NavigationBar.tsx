@@ -27,7 +27,7 @@ const StyledNavbar = styled.div`
 const NavigationBar: React.FC = () => {
   return (
     <StyledNavbar>
-      <Navbar>
+      <Navbar expand='lg' variant='dark'>
         <Navbar.Brand>
           <Logo/>
           <Link className='navbar-brand' to='/'>DELISH !</Link>

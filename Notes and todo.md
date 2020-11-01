@@ -21,6 +21,8 @@
 [Form validation](https://www.itsolutionstuff.com/post/react-form-validation-tutorial-exampleexample.html)
 Note: more in `src/lib/hooks.ts`.
 
+[Responsive YouTube video elements](https://css-tricks.com/fluid-width-video/)
+
 #### Bugs
 
 ##### 1: Search is Too Eager
@@ -45,6 +47,8 @@ On a mobile device (in my case, a Pixel phone), the links on the navigation bar 
 
 Maybe I can fold the links into a hamburger menu?
 
+##### FIXED 2020-November-1
+
 ##### 4: Meal images and YouTube videos do not fit on mobile
 
 Ditto.
@@ -52,4 +56,6 @@ Ditto.
 
 The meal cards in /recipes look fine although they need to be centered.
 
-##### 5: Link colours are hard to read
+##### FIXED 2020-November-1
+
+##### 5: Link colours are hard to read - unifying the styles

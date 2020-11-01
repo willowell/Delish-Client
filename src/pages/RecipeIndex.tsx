@@ -30,7 +30,17 @@ const RecipeIndex: React.FC<RouteComponentProps> = (props) => {
     event.preventDefault()
     // Set the search term to either the last term or the current term,
     // whichever is not falsy.
-    setTerm(lastTerm || currentTerm)
+    const chooseTerm = () => {
+      if (lastTerm !== '') {
+        return lastTerm
+      } else if (currentTerm !== '') {
+        return currentTerm
+      } else {
+        return ''
+      }
+    }
+
+    setTerm(chooseTerm())
     getSearchResults()
     setTimesSearched(timesSearched + 1)
   }
@@ -42,13 +52,9 @@ const RecipeIndex: React.FC<RouteComponentProps> = (props) => {
   }
 
   const ResultsResponse = () => {
-    if (timesSearched === 0) {
-      return <h1>Enter something!</h1>
-    } else if (timesSearched > 0) {
-      return <h1>No results!</h1>
-    } else {
-      return <></>
-    }
+    console.log(timesSearched)
+
+    return (timesSearched <= 0) ? <h1>Enter something!</h1> : <h1>No results!</h1>
   }
 
   const Results = () => {
@@ -56,7 +62,7 @@ const RecipeIndex: React.FC<RouteComponentProps> = (props) => {
     // then display the data.
     // Otherwise, render a message instead based on how many times
     // the user has searched something.
-    if (data?.mealsByArbitraryString?.length) {
+    if (data?.mealsByArbitraryString?.length !== undefined && data?.mealsByArbitraryString?.length > 0) {
       return <ItemCardGrid data={ data } />
     } else {
       return <ResultsResponse />
@@ -64,7 +70,7 @@ const RecipeIndex: React.FC<RouteComponentProps> = (props) => {
   }
 
   // Bail out and render the error.
-  if (error) {
+  if (error !== undefined) {
     return <Error error={ error } />
   }
 
@@ -74,7 +80,7 @@ const RecipeIndex: React.FC<RouteComponentProps> = (props) => {
     <Container>
       <h1>Let's get cooking!</h1>
       <SearchForm
-        placeholderValue={ lastTerm || 'Chicken' }
+        placeholderValue={ (lastTerm !== '') ? lastTerm : 'Chicken' }
         handleSubmit={ handleSubmit }
         handleChange={ handleChange }
         targetValue={ currentTerm }
