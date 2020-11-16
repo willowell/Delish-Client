@@ -7,11 +7,13 @@ import {
 import { ApolloProvider } from '@apollo/react-hooks'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './index.css'
+import './index.scss'
 import App from './App'
 
 const cache = new InMemoryCache()
 const link = new HttpLink({
+  // Reset to 'http://localhost:4000/' for local development
+  // Set to ngrok link for server to show it off!
   uri: 'http://localhost:4000/'
 })
 

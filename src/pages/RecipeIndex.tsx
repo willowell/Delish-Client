@@ -54,7 +54,7 @@ const RecipeIndex: React.FC<RouteComponentProps> = (props) => {
   const ResultsResponse = () => {
     console.log(timesSearched)
 
-    return (timesSearched <= 0) ? <h1>Enter something!</h1> : <h1>No results!</h1>
+    return (timesSearched <= 0) ? <p className='h3'>Enter something!</p> : <p className='h3'>No results!</p>
   }
 
   const Results = () => {
@@ -77,8 +77,8 @@ const RecipeIndex: React.FC<RouteComponentProps> = (props) => {
   // The placeholder is either the last term from local storage
   // or 'Chicken' if the last term is empty.
   return (
-    <Container>
-      <h1>Let's get cooking!</h1>
+    <Container className='justify-content-md-center text-container py-3'>
+      <p className='h3'>Let's get cooking!</p>
       <SearchForm
         placeholderValue={ (lastTerm !== '') ? lastTerm : 'Chicken' }
         handleSubmit={ handleSubmit }

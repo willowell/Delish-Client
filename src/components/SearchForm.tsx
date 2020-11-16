@@ -17,6 +17,7 @@ const SearchForm: React.FC<SearchFormProps> =
           <Form.Control
             size='lg'
             type='text'
+            className='text-center'
             placeholder={ placeholderValue }
             value={ targetValue }
             onChange={ handleChange }

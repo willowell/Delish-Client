@@ -75,9 +75,9 @@ const ContactForm: React.FC = () => {
   }
 
   return (
-    <Form onSubmit={ handleSubmit }>
+    <Form onSubmit={ handleSubmit } className='py-3'>
       <Form.Group controlId='contactForm.email'>
-        <Form.Label>Email Address</Form.Label>
+        <Form.Label as='h3' className='text-center'>Email Address</Form.Label>
         <Form.Control
           size='lg'
           type='email'
@@ -93,7 +93,7 @@ const ContactForm: React.FC = () => {
       </Form.Group>
 
       <Form.Group controlId='contactForm.message'>
-        <Form.Label>Message</Form.Label>
+        <Form.Label as='h3' className='text-center'>Message</Form.Label>
         <Form.Control
           as='textarea'
           rows={ 3 }
@@ -104,13 +104,15 @@ const ContactForm: React.FC = () => {
           isInvalid={ !(messageError !== '') }
         />
         <Form.Text className='text-muted'>
-          { messageError !== '' ? 'We\'ll protect your message with our strongest aluminum foil!' : messageError }
+          { messageError !== '' ? 'We\'ll protect your message with our strongest plastic wrap!' : messageError }
         </Form.Text>
       </Form.Group>
 
-      <Button variant='primary' type='submit' disabled={ disabled }>
-        Submit
-      </Button>
+      <div className='text-center'>
+        <Button variant='primary' size='lg' type='submit' disabled={ disabled }>
+          Submit
+        </Button>
+      </div>
     </Form>
   )
 }

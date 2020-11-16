@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif|Noto+Sans|Mogra:300,400,600,700,800');
+
+@import '../node_modules/bootstrap/scss/functions'; 
+@import '../node_modules/bootstrap/scss/variables';
+
+$mogra: 'Mogra';
+$noto-sans: 'Noto Sans', sans-serif;
+$noto-serif: 'Noto Serif', serif;
+
+$primary-colour-main: #691b99;
+$primary-colour-light: #9b4dcb;
+$primary-colour-dark: #37006a;
+$primary-colour-text: white;
+
+$secondary-colour-main: #e040fb;
+$secondary-colour-light: #ff79ff;
+$secondary-colour-dark: #aa00c7;
+$secondary-colour-text: black;
+
+$theme-colors: (
+  'primary': $primary-colour-main,
+  'secondary': $secondary-colour-main,
+  'dark': $primary-colour-dark
+);
+
+$link-color: $secondary-colour-main;
+$link-hover-color: $secondary-colour-light;
+
+$headings-font-family: $mogra;
+$headings-color: theme-color('dark');
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+footer {
+  a {
+    color: $link-color;
+
+    &:hover {
+      color: $link-hover-color;
+    }
+  }
+}
+
+.emphasis-md {
+  font-size: 1.5rem;
+}
+
+.emphasis-lg {
+  font-size: 2rem;
+}
+
+.text-container {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    text-align: center;
+  }
+
+  ul,
+  ol,
+  li {
+    text-align: left;
+  }
+}
+
+$font-size-lg: 2rem;
+
+$link-decoration: none;
+$link-hover-decoration: none;
+$paragraph-margin-bottom: 1rem;
+
+.logo {
+  height: 60px;
+  width: 60px;
+}
+
+.spyglass {
+  display: block;
+  margin: auto;
+}
+
+.tile-image {
+  max-height: 50vh;
+  object-fit: cover;
+  width: 50vw;
+}
+
+$navbar-dark-color: theme-color('secondary');
+$navbar-dark-brand-color: theme-color('secondary');
+$navbar-dark-brand-hover-color: $link-hover-color;
+$navbar-dark-hover-color: $link-hover-color;
+$navbar-dark-active-color: $link-hover-color;
+
+.navbar {
+  font-family: $mogra;
+
+  .navbar-brand,
+  .nav-link {
+    font-size: $font-size-lg;
+  }
+}
+
+
+
+/*
+Removes white gap between slides - chagnge to base color of slide images
+*/
+.carousel {
+  background: $primary-colour-dark;
+}
+
+/*
+Forces image to be 100% width and not max width of 100%
+*/
+.carousel-item img {
+  max-height: 500px;
+  object-fit: cover;
+  width: 100%;
+}
+
+/* 
+anchors are inline so you need to make them block to go full width
+*/
+.carousel-item a h1 {
+  display: block;
+  width: 100%;
+}
+
+.carousel-caption * {
+  color: white;
+  font-family: $mogra;
+  font-weight: bold;
+  -webkit-text-stroke: 2px theme-color('primary');
+}
+
+// Override Bootstrap
+@import '../node_modules/bootstrap/scss/bootstrap';

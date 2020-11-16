@@ -3,9 +3,6 @@ import React from 'react'
 import Container from 'react-bootstrap/Container'
 import Image from 'react-bootstrap/Image'
 
-import YouTube from 'react-youtube'
-
-import TextContainer from '../components/TextContainer'
 import { MealDetailQuery } from '../gen/graphql'
 
 interface MealDetailViewProps {
@@ -28,16 +25,14 @@ const MealDetailView: React.FC<MealDetailViewProps> = ({ data }) => {
   )
 
   return (
-    <Container>
-      <TextContainer>
-        <h1>{data?.mealByID?.name ?? 'ERROR'}</h1>
-        <h2>☙{data?.mealByID?.category ?? 'ERROR'}, {data?.mealByID?.area ?? 'ERROR'}❧</h2>
-        <Image src={data?.mealByID?.thumbnail ?? 'ERROR'} rounded fluid/>
-        <h3>Ingredients</h3>
-        <ul>{ ingredients }</ul>
-        <h3>Instructions</h3>
-        <ol>{ instructions }</ol>
-      </TextContainer>
+    <Container className='text-container' style={{ paddingBottom: '8rem' }}>
+      <h3>{data?.mealByID?.name ?? 'ERROR'}</h3>
+      <p className='h3'>☙{data?.mealByID?.category ?? 'ERROR'}, {data?.mealByID?.area ?? 'ERROR'}❧</p>
+      <Image src={data?.mealByID?.thumbnail ?? 'ERROR'} rounded fluid/>
+      <p className='h3'>Ingredients</p>
+      <ul>{ ingredients }</ul>
+      <h3>Instructions</h3>
+      <ol>{ instructions }</ol>
       <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }} >
         <iframe 
           style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }} 
